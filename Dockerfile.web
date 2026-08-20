@@ -45,6 +45,7 @@ RUN pnpm install --frozen-lockfile --offline
 ARG NEXT_PUBLIC_APP_VERSION=dev
 ENV NEXT_PUBLIC_APP_VERSION=$NEXT_PUBLIC_APP_VERSION
 ENV STANDALONE=true
+ENV REMOTE_API_URL=http://backend:8080
 
 # Build the web app (standalone output for minimal runtime)
 RUN pnpm --filter @multica/web build
