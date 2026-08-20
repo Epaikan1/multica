@@ -111,6 +111,7 @@ const EMPTY_INBOX_SUMMARY: Awaited<ReturnType<typeof api.getInboxUnreadSummary>>
 // against the current workspace slug at render time (see AppSidebar body).
 // Only parameterless paths are valid nav destinations.
 type NavKey =
+  | "dashboard"
   | "inbox"
   | "chat"
   | "myIssues"
@@ -127,6 +128,7 @@ type NavKey =
 // Static schema (key only) — labels resolved at render via useT("layout"),
 // icons derived from the destination path via routeIconForPath.
 type NavLabelKey =
+  | "dashboard"
   | "inbox"
   | "chat"
   | "my_issues"

@@ -1,3 +1,5 @@
+// COHORT_BRANDED_TITLE — overlay applique par apply-cohort.sh
+// BRAIKE_BRANDED_TITLE — patche par /home/bobo/braike-brand/apply.sh
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Inter, Geist_Mono, Source_Serif_4 } from "next/font/google";
@@ -73,7 +75,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.multica.ai"),
+  metadataBase: new URL("https://cohort.braike.com"),
   title: {
     default: SITE_TITLE,
     template: TITLE_TEMPLATE,
@@ -102,7 +104,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "Multica",
+    siteName: "Cohort",
     locale: "en_US",
   },
   twitter: {
