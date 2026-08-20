@@ -98,6 +98,7 @@
     "descending_title": "내림차순",
     "group_status": "상태",
     "group_assignee": "담당자",
+    "group_title": "제목",
     "group_parent": "상위 태스크",
     "group_project": "프로젝트",
     "sort_manual": "수동",

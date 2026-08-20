@@ -58,6 +58,8 @@ import {
   issueMatchesGroup,
   getMoveUpdates,
   propertyGroupId,
+  titleGroupId,
+  titleBucket,
 } from "../utils/drag-utils";
 
 function isStatusGroup(
@@ -82,6 +84,21 @@ function buildGroups(
       status,
       createData: { status },
     }));
+  }
+
+  if (grouping === "title") {
+    const buckets = new Set<string>();
+    for (const issue of issues) buckets.add(titleBucket(issue.title ?? ""));
+    return Array.from(buckets)
+      .toSorted((a, b) => {
+        if (a === "#") return 1;
+        if (b === "#") return -1;
+        return a.localeCompare(b);
+      })
+      .map((letter) => ({
+        id: titleGroupId(letter === "#" ? "" : letter),
+        title: letter,
+      }));
   }
 
   // Select-property board: one column per option (definition order) plus a

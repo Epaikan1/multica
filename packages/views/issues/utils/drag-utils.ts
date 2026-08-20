@@ -48,6 +48,16 @@ export function assigneeGroupId(
   return type && id ? `assignee:${type}:${id}` : UNASSIGNED_GROUP_ID;
 }
 
+/** Bucket a title into one column per starting letter (A-Z), non-alpha into "#". */
+export function titleBucket(title: string): string {
+  const first = title.trim().charAt(0).toUpperCase();
+  return /^[A-Z]$/.test(first) ? first : "#";
+}
+
+export function titleGroupId(title: string): string {
+  return `title:${titleBucket(title)}`;
+}
+
 export function getIssueGroupId(
   issue: Issue,
   grouping: IssueGrouping,
@@ -58,6 +68,7 @@ export function getIssueGroupId(
   // column has, and the card was dropped from the board/list entirely
   // (MUL-6409).
   if (grouping === "status") return statusGroupId(issueColumnCategory(issue));
+  if (grouping === "title") return titleGroupId(issue.title ?? "");
   const propertyId = propertyIdFromViewKey(grouping);
   if (propertyId) {
     const value = issue.properties?.[propertyId];

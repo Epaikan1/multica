@@ -98,6 +98,7 @@
     "descending_title": "降序",
     "group_status": "状态",
     "group_assignee": "负责人",
+    "group_title": "标题",
     "group_parent": "父级任务",
     "group_project": "项目",
     "sort_manual": "手动",

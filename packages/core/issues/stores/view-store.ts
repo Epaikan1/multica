@@ -16,7 +16,7 @@ export type GanttZoom = "day" | "week" | "month";
  * Persisted values may reference a since-archived definition — consumers must
  * fall back to "status" when the definition can't be resolved.
  */
-export type IssueGrouping = "status" | "assignee" | `property:${string}`;
+export type IssueGrouping = "status" | "assignee" | "title" | `property:${string}`;
 export type SwimlaneGrouping = "parent" | "project" | "assignee";
 /**
  * Sort key. `property:<definitionId>` is resolved server-side against the
@@ -155,6 +155,7 @@ export const SORT_OPTIONS: { value: StaticSortField; label: string }[] = [
 export const GROUPING_OPTIONS: { value: StaticIssueGrouping; label: string }[] = [
   { value: "status", label: "Status" },
   { value: "assignee", label: "Assignee" },
+  { value: "title", label: "Title" },
 ];
 
 export const CARD_PROPERTY_OPTIONS: { key: keyof CardProperties; label: string }[] = [
